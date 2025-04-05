@@ -181,117 +181,227 @@
     <script>
         // Quiz questions
         const questions = [
-            {
-                question: "1. (2022 WASSCE) Which of these is a prepositional phrase?",
-                options: [
-                    "She ran quickly",
-                    "Under the table",
-                    "Because he was late",
-                    "Oh my goodness!"
-                ],
-                answer: 1,
-                explanation: "A prepositional phrase consists of a preposition and its object. 'Under the table' contains the preposition 'under' and its object 'the table'."
-            },
-            {
-                question: "2. (2021 WASSCE) Identify the coordinating conjunction in this sentence: 'I wanted to go to the beach, but it started raining.'",
-                options: [
-                    "wanted",
-                    "to",
-                    "but",
-                    "raining"
-                ],
-                answer: 2,
-                explanation: "The coordinating conjunctions are remembered by the acronym FANBOYS (For, And, Nor, But, Or, Yet, So). 'But' is used here to show contrast."
-            },
-            {
-                question: "3. (2020 WASSCE) Which of these is an interjection?",
-                options: [
-                    "Between",
-                    "Although",
-                    "Hurray!",
-                    "Therefore"
-                ],
-                answer: 2,
-                explanation: "Interjections are words that express strong emotions. 'Hurray!' is an exclamation of joy or approval."
-            },
-            {
-                question: "4. (2019 WASSCE) Choose the correct preposition to complete this Liberian example: 'She lives _____ Benson Street.'",
-                options: [
-                    "in",
-                    "at",
-                    "on",
-                    "by"
-                ],
-                answer: 2,
-                explanation: "For street names, we use the preposition 'on'. This is a common mistake in Liberian English where some might say 'in Benson Street' which is incorrect."
-            },
-            {
-                question: "5. (2018 WASSCE) Which pair represents correlative conjunctions?",
-                options: [
-                    "And/but",
-                    "Either/or",
-                    "Because/although",
-                    "Wow/ouch"
-                ],
-                answer: 1,
-                explanation: "Correlative conjunctions work in pairs. Common examples include either/or, neither/nor, both/and, not only/but also."
-            },
-            {
-                question: "6. (2017 WASSCE) What is the function of the prepositional phrase in this sentence: 'The book on the shelf is mine.'?",
-                options: [
-                    "Adverb modifying 'is'",
-                    "Adjective describing 'book'",
-                    "Direct object of the verb",
-                    "Subject of the sentence"
-                ],
-                answer: 1,
-                explanation: "The prepositional phrase 'on the shelf' acts as an adjective describing which book we're talking about."
-            },
-            {
-                question: "7. (2023 WASSCE) Which Liberian interjection would best express frustration in this situation: '______! My phone battery died again!'",
-                options: [
-                    "Yay",
-                    "Cha",
-                    "Ayai",
-                    "Well"
-                ],
-                answer: 1,
-                explanation: "In Liberian English, 'Cha!' is commonly used to express frustration or annoyance."
-            },
-            {
-                question: "8. (2016 WASSCE) Identify the subordinating conjunction in this sentence: 'Although it was raining, we decided to go out.'",
-                options: [
-                    "it",
-                    "was",
-                    "Although",
-                    "decided"
-                ],
-                answer: 2,
-                explanation: "Subordinating conjunctions introduce dependent clauses. 'Although' introduces the clause 'it was raining' which cannot stand alone."
-            },
-            {
-                question: "9. (2015 WASSCE) Which punctuation is correct for this interjection: ______ I can't believe we won!",
-                options: [
-                    "Wow!",
-                    "Wow,",
-                    "Wow;",
-                    "Wow:"
-                ],
-                answer: 0,
-                explanation: "Strong interjections are typically followed by an exclamation mark. 'Wow!' expresses strong emotion."
-            },
-            {
-                question: "10. (2014 WASSCE) Complete this sentence with the appropriate conjunctive adverb: 'She studied hard; ______, she passed with flying colors.'",
-                options: [
-                    "but",
-                    "because",
-                    "therefore",
-                    "although"
-                ],
-                answer: 2,
-                explanation: "Conjunctive adverbs show relationships between ideas. 'Therefore' shows that passing was the result of studying hard."
-            }
-        ];
+    {
+        question: "1. (2023 WASSCE) Which of these is a prepositional phrase?",
+        options: [
+            "She ran quickly",
+            "Under the table",
+            "Because he was late",
+            "Oh my goodness!"
+        ],
+        answer: 1,
+        explanation: "A prepositional phrase consists of a preposition and its object. 'Under the table' contains the preposition 'under' and its object 'the table'."
+    },
+    {
+        question: "2. (2022 WASSCE) Identify the coordinating conjunction in this sentence: 'I wanted to go to the beach, but it started raining.'",
+        options: [
+            "wanted",
+            "to",
+            "but",
+            "raining"
+        ],
+        answer: 2,
+        explanation: "The coordinating conjunctions are remembered by the acronym FANBOYS (For, And, Nor, But, Or, Yet, So). 'But' is used here to show contrast."
+    },
+    {
+        question: "3. (2021 WASSCE) Which of these is an interjection?",
+        options: [
+            "Between",
+            "Although",
+            "Hurray!",
+            "Therefore"
+        ],
+        answer: 2,
+        explanation: "Interjections are words that express strong emotions. 'Hurray!' is an exclamation of joy or approval."
+    },
+    {
+        question: "4. (2020 WASSCE) Choose the correct preposition to complete this Liberian example: 'She lives _____ Benson Street.'",
+        options: [
+            "in",
+            "at",
+            "on",
+            "by"
+        ],
+        answer: 2,
+        explanation: "For street names, we use the preposition 'on'. This is a common mistake in Liberian English where some might say 'in Benson Street' which is incorrect."
+    },
+    {
+        question: "5. (2019 WASSCE) Which pair represents correlative conjunctions?",
+        options: [
+            "And/but",
+            "Either/or",
+            "Because/although",
+            "Wow/ouch"
+        ],
+        answer: 1,
+        explanation: "Correlative conjunctions work in pairs. Common examples include either/or, neither/nor, both/and, not only/but also."
+    },
+    {
+        question: "6. (2018 WASSCE) What is the function of the prepositional phrase in this sentence: 'The book on the shelf is mine.'?",
+        options: [
+            "Adverb modifying 'is'",
+            "Adjective describing 'book'",
+            "Direct object of the verb",
+            "Subject of the sentence"
+        ],
+        answer: 1,
+        explanation: "The prepositional phrase 'on the shelf' acts as an adjective describing which book we're talking about."
+    },
+    {
+        question: "7. (2017 WASSCE) Which Liberian interjection would best express frustration in this situation: '______! My phone battery died again!'",
+        options: [
+            "Yay",
+            "Cha",
+            "Ayai",
+            "Well"
+        ],
+        answer: 1,
+        explanation: "In Liberian English, 'Cha!' is commonly used to express frustration or annoyance."
+    },
+    {
+        question: "8. (2016 WASSCE) Identify the subordinating conjunction in this sentence: 'Although it was raining, we decided to go out.'",
+        options: [
+            "it",
+            "was",
+            "Although",
+            "decided"
+        ],
+        answer: 2,
+        explanation: "Subordinating conjunctions introduce dependent clauses. 'Although' introduces the clause 'it was raining' which cannot stand alone."
+    },
+    {
+        question: "9. (2015 WASSCE) Which punctuation is correct for this interjection: ______ I can't believe we won!",
+        options: [
+            "Wow!",
+            "Wow,",
+            "Wow;",
+            "Wow:"
+        ],
+        answer: 0,
+        explanation: "Strong interjections are typically followed by an exclamation mark. 'Wow!' expresses strong emotion."
+    },
+    {
+        question: "10. (2014 WASSCE) Complete this sentence with the appropriate conjunctive adverb: 'She studied hard; ______, she passed with flying colors.'",
+        options: [
+            "but",
+            "because",
+            "therefore",
+            "although"
+        ],
+        answer: 2,
+        explanation: "Conjunctive adverbs show relationships between ideas. 'Therefore' shows that passing was the result of studying hard."
+    },
+    {
+        question: "11. (2023 WASSCE) Which sentence contains a prepositional phrase acting as an adverb?",
+        options: [
+            "The man with the hat left",
+            "We arrived before dinner",
+            "Students in the class listened",
+            "The house on the hill"
+        ],
+        answer: 1,
+        explanation: "'Before dinner' modifies the verb 'arrived', telling when we arrived, making it an adverbial prepositional phrase."
+    },
+    {
+        question: "12. (2022 WASSCE) Identify the interjection in this Liberian sentence: 'Ayai! I stepped on a stone!'",
+        options: [
+            "stepped",
+            "Ayai",
+            "on",
+            "stone"
+        ],
+        answer: 1,
+        explanation: "'Ayai' is a Liberian interjection expressing sudden pain or surprise."
+    },
+    {
+        question: "13. (2021 WASSCE) Which conjunction best completes this sentence: '______ it was late, we continued studying ______ we wanted to pass.'",
+        options: [
+            "Although, because",
+            "But, so",
+            "And, but",
+            "Because, although"
+        ],
+        answer: 0,
+        explanation: "'Although' shows contrast for the first clause, 'because' shows reason for the second clause."
+    },
+    {
+        question: "14. (2020 WASSCE) What type of conjunction is 'not only...but also'?",
+        options: [
+            "Coordinating",
+            "Subordinating",
+            "Correlative",
+            "Conjunctive adverb"
+        ],
+        answer: 2,
+        explanation: "'Not only...but also' is a correlative conjunction because it works in pairs to join balanced elements."
+    },
+    {
+        question: "15. (2019 WASSCE) Which sentence correctly uses a prepositional phrase?",
+        options: [
+            "She ran quick to the store",
+            "The dog barked at the stranger",
+            "They laughed loud during the movie",
+            "We went to Monrovia and it was fun"
+        ],
+        answer: 1,
+        explanation: "'At the stranger' is a correct prepositional phrase with 'at' as the preposition and 'the stranger' as its object."
+    },
+    {
+        question: "16. (2018 WASSCE) Which is NOT a function of conjunctions?",
+        options: [
+            "Joining words",
+            "Expressing emotion",
+            "Connecting clauses",
+            "Showing relationships between ideas"
+        ],
+        answer: 1,
+        explanation: "Expressing emotion is the function of interjections, not conjunctions."
+    },
+    {
+        question: "17. (2017 WASSCE) Choose the correct preposition: 'The meeting will be held _____ the conference hall _____ 10am.'",
+        options: [
+            "in, at",
+            "on, in",
+            "at, on",
+            "by, for"
+        ],
+        answer: 0,
+        explanation: "We use 'in' for enclosed spaces and 'at' for specific times."
+    },
+    {
+        question: "18. (2016 WASSCE) Which sentence contains a conjunctive adverb?",
+        options: [
+            "She wanted to go, but she stayed",
+            "First we ate; then we left",
+            "Both John and Mary came",
+            "After we finished, we went home"
+        ],
+        answer: 1,
+        explanation: "'Then' is a conjunctive adverb showing sequence of events."
+    },
+    {
+        question: "19. (2015 WASSCE) What is the object of the preposition in: 'They walked across the bridge'?",
+        options: [
+            "they",
+            "walked",
+            "the bridge",
+            "across"
+        ],
+        answer: 2,
+        explanation: "In the prepositional phrase 'across the bridge', 'the bridge' is the object of the preposition 'across'."
+    },
+    {
+        question: "20. (2014 WASSCE) Which interjection would be inappropriate in formal writing?",
+        options: [
+            "However",
+            "Alas",
+            "OMG",
+            "Therefore"
+        ],
+        answer: 2,
+        explanation: "'OMG' (Oh My God) is an informal interjection unsuitable for formal writing."
+    }
+];
 
         // Quiz state variables
         let currentQuestion = 0;
