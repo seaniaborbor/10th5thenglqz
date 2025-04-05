@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASSCE English Grammar Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+        }
+        
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+        
+        .quiz-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .question-container {
+            margin-bottom: 2rem;
+        }
+        
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .options {
+            margin-bottom: 1.5rem;
+        }
+        
+        .option {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .option.selected {
+            border: 2px solid var(--primary-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .option.correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            border-color: var(--secondary-color);
+            color: #155724;
+        }
+        
+        .option.incorrect {
+            background-color: rgba(231, 76, 60, 0.2);
+            border-color: var(--danger-color);
+            color: #721c24;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-container {
+            margin-top: 2rem;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .score-container {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .btn-social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-facebook {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .btn-github {
+            background-color: #333;
+            color: white;
+        }
+        
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h1 class="quiz-title">WASSCE English Grammar Quiz</h1>
+                <p>Test your knowledge of prepositions, conjunctions, and interjections</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div class="explanation" id="explanation"></div>
+            </div>
+            
+            <div class="navigation">
+                <button class="btn btn-outline-primary" id="prev-btn" disabled>Previous</button>
+                <button class="btn btn-primary" id="next-btn">Next</button>
+            </div>
+            
+            <div class="score-container" id="score-container"></div>
+            
+            <div class="social-buttons">
+                <a href="https://web.facebook.com/tarnue.borbor" class="btn btn-social btn-facebook" target="_blank">
+                    <i class="bi bi-facebook"></i> Facebook
+                </a>
+                <a href="https://github.com/seaniaborbor" class="btn btn-social btn-github" target="_blank">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Quiz questions
+        const questions = [
+            {
+                question: "1. (2022 WASSCE) Which of these is a prepositional phrase?",
+                options: [
+                    "She ran quickly",
+                    "Under the table",
+                    "Because he was late",
+                    "Oh my goodness!"
+                ],
+                answer: 1,
+                explanation: "A prepositional phrase consists of a preposition and its object. 'Under the table' contains the preposition 'under' and its object 'the table'."
+            },
+            {
+                question: "2. (2021 WASSCE) Identify the coordinating conjunction in this sentence: 'I wanted to go to the beach, but it started raining.'",
+                options: [
+                    "wanted",
+                    "to",
+                    "but",
+                    "raining"
+                ],
+                answer: 2,
+                explanation: "The coordinating conjunctions are remembered by the acronym FANBOYS (For, And, Nor, But, Or, Yet, So). 'But' is used here to show contrast."
+            },
+            {
+                question: "3. (2020 WASSCE) Which of these is an interjection?",
+                options: [
+                    "Between",
+                    "Although",
+                    "Hurray!",
+                    "Therefore"
+                ],
+                answer: 2,
+                explanation: "Interjections are words that express strong emotions. 'Hurray!' is an exclamation of joy or approval."
+            },
+            {
+                question: "4. (2019 WASSCE) Choose the correct preposition to complete this Liberian example: 'She lives _____ Benson Street.'",
+                options: [
+                    "in",
+                    "at",
+                    "on",
+                    "by"
+                ],
+                answer: 2,
+                explanation: "For street names, we use the preposition 'on'. This is a common mistake in Liberian English where some might say 'in Benson Street' which is incorrect."
+            },
+            {
+                question: "5. (2018 WASSCE) Which pair represents correlative conjunctions?",
+                options: [
+                    "And/but",
+                    "Either/or",
+                    "Because/although",
+                    "Wow/ouch"
+                ],
+                answer: 1,
+                explanation: "Correlative conjunctions work in pairs. Common examples include either/or, neither/nor, both/and, not only/but also."
+            },
+            {
+                question: "6. (2017 WASSCE) What is the function of the prepositional phrase in this sentence: 'The book on the shelf is mine.'?",
+                options: [
+                    "Adverb modifying 'is'",
+                    "Adjective describing 'book'",
+                    "Direct object of the verb",
+                    "Subject of the sentence"
+                ],
+                answer: 1,
+                explanation: "The prepositional phrase 'on the shelf' acts as an adjective describing which book we're talking about."
+            },
+            {
+                question: "7. (2023 WASSCE) Which Liberian interjection would best express frustration in this situation: '______! My phone battery died again!'",
+                options: [
+                    "Yay",
+                    "Cha",
+                    "Ayai",
+                    "Well"
+                ],
+                answer: 1,
+                explanation: "In Liberian English, 'Cha!' is commonly used to express frustration or annoyance."
+            },
+            {
+                question: "8. (2016 WASSCE) Identify the subordinating conjunction in this sentence: 'Although it was raining, we decided to go out.'",
+                options: [
+                    "it",
+                    "was",
+                    "Although",
+                    "decided"
+                ],
+                answer: 2,
+                explanation: "Subordinating conjunctions introduce dependent clauses. 'Although' introduces the clause 'it was raining' which cannot stand alone."
+            },
+            {
+                question: "9. (2015 WASSCE) Which punctuation is correct for this interjection: ______ I can't believe we won!",
+                options: [
+                    "Wow!",
+                    "Wow,",
+                    "Wow;",
+                    "Wow:"
+                ],
+                answer: 0,
+                explanation: "Strong interjections are typically followed by an exclamation mark. 'Wow!' expresses strong emotion."
+            },
+            {
+                question: "10. (2014 WASSCE) Complete this sentence with the appropriate conjunctive adverb: 'She studied hard; ______, she passed with flying colors.'",
+                options: [
+                    "but",
+                    "because",
+                    "therefore",
+                    "although"
+                ],
+                answer: 2,
+                explanation: "Conjunctive adverbs show relationships between ideas. 'Therefore' shows that passing was the result of studying hard."
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = null;
+        let quizCompleted = false;
+
+        // DOM elements
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const explanationElement = document.getElementById('explanation');
+        const prevButton = document.getElementById('prev-btn');
+        const nextButton = document.getElementById('next-btn');
+        const progressBar = document.querySelector('.progress-bar');
+        const scoreContainer = document.getElementById('score-container');
+
+        // Load question
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionElement.textContent = question.question;
+            
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                optionElement.textContent = option;
+                optionElement.dataset.index = index;
+                optionElement.addEventListener('click', selectOption);
+                optionsElement.appendChild(optionElement);
+            });
+            
+            explanationElement.style.display = 'none';
+            explanationElement.textContent = question.explanation;
+            
+            updateProgress();
+            updateButtons();
+        }
+
+        // Select option
+        function selectOption(e) {
+            if (quizCompleted) return;
+            
+            const selectedElement = e.target;
+            const selectedIndex = parseInt(selectedElement.dataset.index);
+            
+            // Remove previous selection
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Mark selected option
+            selectedElement.classList.add('selected');
+            selectedOption = selectedIndex;
+            
+            // Check answer
+            const question = questions[currentQuestion];
+            if (selectedIndex === question.answer) {
+                selectedElement.classList.add('correct');
+                if (!question.answeredCorrectly) {
+                    score++;
+                    question.answeredCorrectly = true;
+                }
+            } else {
+                selectedElement.classList.add('incorrect');
+                // Also highlight correct answer
+                options[question.answer].classList.add('correct');
+            }
+            
+            // Show explanation
+            explanationElement.style.display = 'block';
+            
+            updateScore();
+        }
+
+        // Update navigation buttons
+        function updateButtons() {
+            prevButton.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === questions.length - 1) {
+                nextButton.textContent = 'Finish';
+            } else {
+                nextButton.textContent = 'Next';
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Update score display
+        function updateScore() {
+            scoreContainer.textContent = `Score: ${score}/${questions.length}`;
+        }
+
+        // Next question
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                selectedOption = null;
+                loadQuestion();
+            } else {
+                completeQuiz();
+            }
+        }
+
+        // Previous question
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                selectedOption = null;
+                loadQuestion();
+            }
+        }
+
+        // Complete quiz
+        function completeQuiz() {
+            quizCompleted = true;
+            questionElement.textContent = 'Quiz Completed!';
+            optionsElement.innerHTML = '';
+            explanationElement.style.display = 'none';
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            let message = '';
+            
+            if (percentage >= 80) {
+                message = `Excellent! You scored ${score}/${questions.length} (${percentage}%)`;
+            } else if (percentage >= 60) {
+                message = `Good job! You scored ${score}/${questions.length} (${percentage}%)`;
+            } else if (percentage >= 40) {
+                message = `Not bad! You scored ${score}/${questions.length} (${percentage}%)`;
+            } else {
+                message = `Keep practicing! You scored ${score}/${questions.length} (${percentage}%)`;
+            }
+            
+            scoreContainer.textContent = message;
+            nextButton.style.display = 'none';
+            prevButton.style.display = 'none';
+        }
+
+        // Event listeners
+        nextButton.addEventListener('click', nextQuestion);
+        prevButton.addEventListener('click', prevQuestion);
+
+        // Initialize quiz
+        loadQuestion();
+        updateScore();
+    </script>
+</body>
+</html>
